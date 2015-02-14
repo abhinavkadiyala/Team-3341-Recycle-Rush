@@ -11,7 +11,7 @@ Drive::Drive() :
 {
 }
 
-void Drive::arcadeDrive(float moveValue, float rotateValue){
+void Drive::arcadeDrive(float rotateValue, float moveValue){
 		float leftMotorOutput;
 		float rightMotorOutput;
 
@@ -45,10 +45,16 @@ void Drive::arcadeDrive(float moveValue, float rotateValue){
 			}
 		}
 		double mult;
-		if((moveValue >= 0.01 && rotateValue >= 0.01) || eRight->GetRate() == 0)
+		//if((moveValue >= 0.01 && rotateValue >= 0.01) || eLeft->GetRate() == 0)
 			mult = 1;
+<<<<<<< Updated upstream
 		else
 			mult = abs(eLeft->GetRate())/abs(eRight->GetRate());
+=======
+	//	else
+			//mult = abs(eRight->GetRate())/abs(eLeft->GetRate());
+
+>>>>>>> Stashed changes
 		float limitedL = Limit(leftMotorOutput);
 		float limitedR = Limit(((float) mult)*rightMotorOutput);
 		printf("%f, %f\n", eLeft->GetRate(), eRight->GetRate());
